@@ -1,0 +1,59 @@
+extends template/base.pug
+
+block content
+    header
+        h1 This is Petingo #[br] an enthusiast for #[span#typeit-block]
+        p
+            | I am a #[a(href="https://en.wikipedia.org/wiki/Multipotentiality") multipotentialite ] -
+            | a computer vision researcher / an award-winning photographer / an enthusiast for Architecture. #[br]
+            | To get more information, please visit #[a(href="about.html") ⇲ About]. #[br]
+        
+        ul.icons(style="margin-bottom: 4em;")
+            //- li
+            //-     a.icon.brands.style1.fa-blogger(href="https://petingo.de")
+            //-         span.label blog
+            li
+                a.icon.brands.style1.fa-github(href="https://github.com/Petingo")
+                    span.label Github
+            li
+                a.icon.brands.style1.fa-instagram(href="https://instagram.com/petingo")
+                    span.label Instagram
+            li
+                a.icon.brands.style1.fa-twitter(href="https://twitter.com/Petingooo")
+                    span.label Twitter
+            li
+                a.icon.brands.style1.fa-facebook(href="https://www.facebook.com/Petingo")
+                    span.label Facebook
+            li
+                a.icon.solid.style1.fa-envelope(href="mailto:eyanghongbin0315@gmail.com")
+                    span.label Email
+            
+                    
+
+    section.tiles
+        mixin article(title, disc, img_src, href)
+            article.style1
+                span.image
+                    img(src=img_src alt="")
+                a(href=href)
+                    h2= title
+                    div.content
+                        p= disc
+
+        +article(
+            'Fold the Refuge',
+            'A refuge formed by foldable components, which is designed for efficient delivery and quick construction.',
+            'images/fold.png',
+            'fold.html')
+
+        +article(
+            'Hame',
+            'An equipment made for enhancing immersion of FPS games.',
+            'images/hame.jpg',
+            'hame.html')
+        
+        +article(
+            'Smart Ped Xing',
+            'A more interactive pedestrian crossing.',
+            'images/smart-Xing.jpg',
+            'smart-xing.html')
