@@ -1,0 +1,90 @@
+extends template/base.pug
+
+block content
+    header
+        h1 I'm Petingo, #[br] an enthusiast of #[span#typeit-block]
+        p
+            | I am a #[a(href="https://en.wikipedia.org/wiki/Multipotentiality") multipotentialite ] -
+            | a programmer / an award-winning photographer / an enthusiast of Architecture. #[br]
+            | To get more information, please visit #[a(href="about.html") ⇲ About]. #[br]
+        
+        ul.icons(style="margin-bottom: 4em;")
+            li
+                a.icon.brands.style1.fa-blogger(href="https://blog.petingo.de")
+                    span.label blog
+            li
+                a.icon.brands.style1.fa-github(href="https://github.com/Petingo")
+                    span.label Github
+            li
+                a.icon.brands.style1.fa-instagram(href="https://instagram.com/petingo")
+                    span.label Instagram
+            li
+                a.icon.brands.style1.fa-twitter(href="https://twitter.com/Petingooo")
+                    span.label Twitter
+            li
+                a.icon.brands.style1.fa-facebook(href="https://www.facebook.com/Petingo")
+                    span.label Facebook
+            li
+                a.icon.solid.style1.fa-envelope(href="mailto:eyanghongbin0315@gmail.com")
+                    span.label Email
+            
+                    
+
+    section.tiles
+        mixin article(title, disc, img_src, href)
+            article.style1
+                span.image
+                    img(src=img_src alt="")
+                a(href=href)
+                    h2= title
+                    div.content
+                        p= disc
+
+        +article(
+            'Exploration Or Obedience',
+            'A interactive device that encourage people to question the value of religion',
+            'images/cover/exploration-or-obedience.jpg',
+            'projects/exploration-or-obedience.html')
+
+        +article(
+            'PTT Theme',
+            'A Chrome Extension for customizing your PTT!',
+            'images/cover/ptt-theme.png',
+            'projects/ptt-theme.html')
+
+        +article(
+            'Fold the Refuge',
+            'A refuge formed by foldable components, which is designed for efficient delivery and quick construction.',
+            'images/cover/fold.png',
+            'projects/fold.html')
+        
+        +article(
+            'NUTS',
+            'A map-based campus forum.',
+            'images/cover/NUTS.png',
+            'projects/NUTS.html')
+
+        +article(
+            'Hame',
+            'An equipment made for enhancing immersion of FPS games.',
+            'images/cover/hame.jpg',
+            'projects/hame.html')
+
+        +article(
+            'Smart Ped Xing',
+            'A more interactive pedestrian crossing.',
+            'images/cover/smart-Xing.jpg',
+            'projects/smart-xing.html')
+
+        +article(
+            'Pi Quadcopter',
+            'A quadcopter made of Raspberry Pi and Multiwii.',
+            'images/cover/pi-quadcopter.png',
+            'projects/pi-quadcopter.html')
+
+        +article(
+            'Photography works',
+            'My photography works.',
+            'images/cover/photography.png',
+            'projects/photography.html')
+    

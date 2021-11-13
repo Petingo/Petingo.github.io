@@ -1,0 +1,64 @@
+extends template/base.pug
+
+block content
+    //- (style="width: 70%; margin: 0px auto;")
+    div#article
+        h1 HAME
+        span.image.main
+            img(src="/images/hame/main.png")
+        
+        h2 Introduction
+        p.bmb
+            | We designed an FPS game using Unity 3D and integrated it with an Arduino device to study the
+            | effectiveness of physical feedback in increasing the immersion of FPS game.
+        
+        h3 1. Game
+        p.bmb
+            | In the game, the player need to find the exit of a maze and dodge the monsters (the green cube) on the way.
+            | The character is equipped with a gun to kill the monsters. However, the bullets is limited.
+            | Also, when the character hit by the monster or bumped into the wall, its Health Points (HP) will decrease.
+            | When HP runs out, the character will die.
+        span.image.main
+            img(src="/images/hame/game.png")
+
+        h3 2. Device
+        p.bmb
+            | We tied four servo motors on the player’s hands, chest, and back. They would be triggered when the character is attacked by a monster or bump into a wall.
+
+        span.image.main
+            img(src="/images/hame/device.png")
+        span.image.main
+            img(src="/images/hame/demo.gif")
+        
+        h2 Usibility Test
+        p
+            | Results showed physical feedback can raised the immersion and make the game more interesting.
+        
+        div.table-wrapper
+            table
+                tbody
+                    tr
+                        td I feel the game is interesting WITHOUT physical feedback
+                        td I feel immersion when I play the game WITHOUT physical feedback
+                        td I feel the monster is horriable when I play the game WITHOUT physical feedback
+                    tr
+                        td 2.8 / 5
+                        td 3.4 / 5
+                        td 2 / 5
+                    tr
+                        td I feel the game is interesting WITH physical feedback
+                        td I feel immersion when I play the game WITH physical feedback
+                        td I feel the monster is horriable when I play the game WITH physical feedback
+                    tr
+                        td 4.4 / 5
+                        td 4.2 / 5
+                        td 2.8 / 5
+                    tr
+                        td +1.6
+                        td +1
+                        td +0.8
+        p       
+            | * In this project, I developed the game (in C#) and the program (in C) for Arduino and conducted usability test.
+
+
+        

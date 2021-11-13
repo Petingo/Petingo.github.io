@@ -1,0 +1,35 @@
+extends template/base.pug
+
+block content
+    div#article
+        h1 PTT Theme
+        span.image.main
+            img(src="/images/ptt-theme/main.png")
+        
+        h2 Introduction
+        p
+            | #[a(href="https://term.ptt.cc") PTT] (#[a(href="https://en.wikipedia.org/wiki/PTT_Bulletin_Board_System") ⇲ wikipedia]) is the largest
+            | terminal-based bulletin board system (BBS) based in Taiwan. Also, it is recognized as the
+            | most influential online forum in Taiwan. However, it comes with an unfavorable old-school
+            | color theme.
+        p
+            | One Day, I came up with the idea of applying the “text color modification” function in almost
+            | every code editor to PTT and started developing this extension. With this extension, users can
+            | simply select the built-in theme to change the default color:
+        
+        span.image.main(style="margin-bottom: 1em;")
+            img(src="/images/ptt-theme/theme-demo.gif")            
+            p.align-center (Original/Solarized Dark/Argonaut/Solarized Light/Expresso)
+        
+        p
+            | or customize it by themselves:
+
+        span.image.main
+            img(src="/images/ptt-theme/change-demo.gif")
+            
+        h2 How does it works?
+        span.image.main
+            img(src="/images/ptt-theme/flow.jpg")
+            p
+                | This extension would insert a new CSS file, and use JavaScript to dynamiclly update the color.
+                | If you are interested about the detail or want to contribute, please visit the #[a(href="https://github.com/Petingo/PTT-Theme") GitHub Page].

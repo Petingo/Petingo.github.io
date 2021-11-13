@@ -1,0 +1,2 @@
+## Credit
+The websited is based on [Phantom by HTML5 UP](https://html5up.net/phantom) made by [@ajlkn](aj@lkn.io), which is distributed with license [Creative Commons Attribution 3.0 Unported](http://creativecommons.org/licenses/by/3.0/).

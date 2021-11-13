@@ -1,0 +1,41 @@
+extends template/base.pug
+
+block content
+    div#article
+        h1 Exploration Or Obedience
+        span.image.main
+            img(src="/images/exploration-or-obedience/main.jpg" alt="model")
+        
+        h2 Introduction
+
+        p In this work, I assist two designer, H.Y. Huang and Y.H. Lee, realizing their idea of interactive design: 
+            span(style="background-image: linear-gradient(0deg,transparent 9%, #d1f0ec 10%, #d1f0ec 49%,transparent 50%);")
+                | Exploration Or Obedience, which question the value of religion.
+        
+        blockquote
+            | Religion has a long-term influence on values, and people often struggle between “loyalty to oneself but trying to explore” and “absolute obedience to doctrine”. #[br]
+            | We collected audio of young men and women’s sexual behavior, generating mosaic patterns based on the sound, to perform alternative porn on the stained glass. #[br] 
+            | —— H.Y. Huang and Y.H. Lee
+
+        hr
+
+        h2 Technique
+        p
+            span.image.right
+                img(src="/images/exploration-or-obedience/test.png" alt="model")
+            | There are two parts in the interaction. The first part is a dynamic stained glass, which reflects the movement of audiences.
+            | It takes a photo every 10 seconds, and the photo would be projected on another wall which contains a row of stained glasses.
+
+        p
+            | At the beginning, I tried to use <a href="https://p5js.org/">p5.js</a> for creating the dynamic triangulated mosaic along with <a href="https://github.com/tensorflow/tfjs-models/tree/master/body-pix">BodyPix</a> for human segmentation.
+            | (<a href="https://openprocessing.org/sketch/1142349">Click here</a> for early stage demo on OpenProcessing.)
+            | However, the performance is not ideal. Low FPS and high delay forced us to give up this combination.
+            | As an alternative, <a href="https://processing.org/">Processing</a> and Kinect are used at the end.
+
+        hr
+
+        h2 At Exhibition
+        img(src="/images/exploration-or-obedience/demo.gif" alt="demo" style="width:100%")
+        p The exhibition is held at Taiwan Tech, Taipei, Taiwan; from 8 May to 11 May, 2021.
+            
+            
