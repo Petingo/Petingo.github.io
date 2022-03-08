@@ -4,8 +4,6 @@ block content
     header
         h1 I'm Petingo, #[br] an enthusiast of #[span#typeit-block]
         p
-            | I am a #[a(href="https://en.wikipedia.org/wiki/Multipotentiality") multipotentialite ] -
-            | a programmer / an award-winning photographer / an enthusiast of Architecture. #[br]
             | To get more information, please visit #[a(href="about.html") ⇲ About]. #[br]
         
         ul.icons(style="margin-bottom: 4em;")
@@ -13,7 +11,7 @@ block content
                 a.icon.brands.style1.fa-github(href="https://github.com/Petingo")
                     span.label Github
             li
-                a.icon.solid.style1.fas.fa-book(href="https://blog.petingo.de")
+                a.icon.solid.style1.fas.fa-book(href="https://blog.petingo.ch")
                     span.label blog
             li
                 a.icon.solid.style1.fas.fa-camera-retro(href="https://vsco.co/petingo")
@@ -45,6 +43,12 @@ block content
                         p= disc
 
         +article(
+            'Road Segmentation',
+            'Segmenting Roads from Aerial Images',
+            'images/cover/road-segmentation.png',
+            'projects/road-segmentation.html')
+
+        +article(
             'Exploration Or Obedience',
             'A interactive device that encourage people to question the value of religion',
             'images/cover/exploration-or-obedience.jpg',
@@ -63,12 +67,6 @@ block content
             'projects/fold.html')
         
         +article(
-            'NUTS',
-            'A map-based campus forum.',
-            'images/cover/NUTS.png',
-            'projects/NUTS.html')
-
-        +article(
             'Hame',
             'An equipment made for enhancing immersion of FPS games.',
             'images/cover/hame.jpg',
@@ -81,10 +79,22 @@ block content
             'projects/smart-xing.html')
 
         +article(
-            'Pi Quadcopter',
-            'A quadcopter made of Raspberry Pi and Multiwii.',
-            'images/cover/pi-quadcopter.png',
-            'projects/pi-quadcopter.html')
+            'Effective Chroma Subsampling',
+            'State-of-the-art method of YUV420 subsampling.',
+            'images/cover/chroma-subsampling.png',
+            'projects/chroma-subsampling.html')
+
+        +article(
+            'NUTS',
+            'A map-based campus forum.',
+            'images/cover/NUTS.png',
+            'projects/NUTS.html')
+        
+        +article(
+            'Small Projects',
+            'Some small projects I developed without creativity :P',
+            'images/cover/small-projects.png',
+            'projects/small-projects.html')
 
         +article(
             'Photography works',

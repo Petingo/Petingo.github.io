@@ -1,0 +1,33 @@
+extends template/base.pug
+
+block content
+    div#article
+        h1 Road Segmentation
+        
+        span.image.main
+            img(src="/images/road-segmentation/task-intro.png")
+
+        h2 Introduction
+        p
+            | This is the course project of CS433 Machine Learning. In this project, our task is to perform semantic segmentation
+            | for identifying roads from aerial images. The goal is to train a machine learning model which takes an aerial image
+            | as input and outputs a binary mask.
+
+        p
+            | We first ran the provided CNN model as our baseline. Then, we applied different neural network models to this task,
+            | such as U-Net, TernausNet, and DeepLab v3. Although the DeepLab v3 model can produce a decent prediction, some noticeable
+            | false positives are presented. To address this issue, we proposed a 2-stage network. By further feeding the output of
+            | the DeepLab v3 model into a U-Net, we expected a refined result. However, it did not produce a better result.
+
+        hr
+
+        h2 Result
+        p
+            | For the final result, we obtained F1 score of 0.922 and accuracy of 0.958 through DeepLab v3 model with a special training technique,
+            | ranked 4th among ~100 teams.
+            
+        p
+            | Here is the visual result of our experiments:
+
+        span.image.main
+            img(src="/images/road-segmentation/result.png")

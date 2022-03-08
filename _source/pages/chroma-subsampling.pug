@@ -1,0 +1,26 @@
+extends template/base.pug
+
+block content
+    div#article
+        h1 Effective Chroma Subsampling Method
+        span.image.main
+            img(src="/images/chroma-subsampling/main.png")
+        
+        h2 Introduction
+        p
+            | To compress images or videos, it is common to perform #[a(href="https://en.wikipedia.org/wiki/Chroma_subsampling") Chroma Subsampling]
+            | before encoding and storing. Since human eyes are less sensitive to color change than luminance change,
+            | we can sacrifice chroma information but keep luminance information as much as possible to shrink the
+            | data size and preserve its visual quality.
+
+        p
+            | In traditional methods, chroma subsampling is performed on its own (do not rely on luminance information).
+            | However, some researches showed that with luminance information, the distoration of the compressed image can be decreased.
+
+        p 
+            | In this paper, we proposed a novel method for YUV420, which is one of the most widely-used chroma subsampling format,
+            | using multiple linear regression technique.
+            | For experiment result, it showed that our method outperformed the previous state-of-the-art by >1db in evaluation of color-PSNR.
+
+        p 
+            | For more detail, please refer to #[a(href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9108293&tag=1") link to the paper].
