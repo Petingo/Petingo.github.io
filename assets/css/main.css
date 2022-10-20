@@ -177,9 +177,9 @@ h1 a {
 h2, h3, h4, h5, h6 {
   font-weight: 900;
   line-height: 1.5;
-  margin: 0 0 2em 0;
+  margin: 1.2em 0 0.4em 0;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.25em;
 }
 h2 a, h3 a, h4 a, h5 a, h6 a {
   color: inherit;
@@ -1397,7 +1397,7 @@ section.special, article.special {
 }
 
 header p {
-  margin-top: -1em;
+  margin-top: 0em;
 }
 @media screen and (max-width: 736px) {
   header p {
@@ -2103,6 +2103,7 @@ button:disabled,
   display: block;
   width: 100%;
 }
+
 .tiles article > .image:before {
   pointer-events: none;
   -moz-transition: background-color 0.5s ease, opacity 0.5s ease;
@@ -2119,7 +2120,7 @@ button:disabled,
   opacity: 1;
   z-index: 1;
   opacity: 0.5;
-  background-color: #BBBBBB;
+  background-color: #888888;
 }
 .tiles article > .image:after {
   pointer-events: none;
@@ -2134,7 +2135,7 @@ button:disabled,
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %23ffffff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E");
+  /* background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %23ffffff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;

@@ -5,29 +5,48 @@ block content
         h1 Road Segmentation
         
         span.image.main
-            img(src="/images/road-segmentation/task-intro.png")
+            img(src="/images/road-segmentation/road-segmentation.png")
 
         h2 Introduction
         p
-            | This is the course project of CS433 Machine Learning. In this project, our task is to perform semantic segmentation
-            | for identifying roads from aerial images. The goal is to train a machine learning model which takes an aerial image
-            | as input and outputs a binary mask.
-
-        p
-            | We first ran the provided CNN model as our baseline. Then, we applied different neural network models to this task,
-            | such as U-Net, TernausNet, and DeepLab v3. Although the DeepLab v3 model can produce a decent prediction, some noticeable
-            | false positives are presented. To address this issue, we proposed a 2-stage network. By further feeding the output of
-            | the DeepLab v3 model into a U-Net, we expected a refined result. However, it did not produce a better result.
-
+            | This is the course project of CS433 Machine Learning (Fall 2021). In this project, our task is to perform semantic segmentation to separate roads from satellite/aerial images. The goal is to train a machine learning model which takes an image as input and outputs a binary mask, indicating the road and background. The model performance is evaluated by a patch-wise approach. The output mask is divided into 16x16 patches, where a patch is recognized as a road class if 25% of the pixel are predicted to be positive.
+        
+        span.image
+            img(src="/images/road-segmentation/task-intro.png")
+        
         hr
 
-        h2 Result
+        h2 Method
+        h3 Data preparation
         p
-            | For the final result, we obtained F1 score of 0.922 and accuracy of 0.958 through DeepLab v3 model with a special training technique,
-            | ranked 4th among ~100 teams.
-            
-        p
-            | Here is the visual result of our experiments:
+            | The provided dataset consists of 100 images with groundtruth masks for training and 50 images without groundtruth mask for testing.
+        p 
+            | To perform data augmentation, we adopted random flipping, cropping, and rotation. Also, since we used pretrained model that trained on ImageNet, the input images are normalized with the mean and standard deviation of ImageNet.
 
+        h3 Models
+        p
+            | We tried several conventional deep learning models for this work, including a CNN consist of 2 fully-connected layers (the baseline provided by the TA), U-Net, TernausNet, and Deeplabv3. We also invented a 2-stage network, where we connected a U-Net in the end of the DeepLabv3 to try to eliminate the false-positive prediction.
+        span.image
+            img(src="/images/road-segmentation/2-stage.png")
+        
+        h3 Loss function
+        p
+            | For the loss function, the most trivial one is the binary cross entropy. Other than that, we tried dice loss and patch-wised binary cross entropy, since the data are a little bit imbalanced and the final evaluation was based on a patch-wised approach.
+        
+        h3 Training
+        p
+            | When training, 90 images are used for training and 10 images are used for evaluation.
+        p
+            | After the normal training process is converged, we also tried to fine-tune the model with all 100 images for a fixed number of epochs. Although we got a slightly higher F1 score and Accurarcy, it is almost identical that the difference can be igonred.
+        
+        hr
+        
+        h2 Results
+        p
+            | Here is the qualitative and quantitative result of different models (combined with different loss function if stated). On the leaderboard, we got 0.922 F1 Score and 0.958 Accurarcy, making us the 4th place among 137 teams.
         span.image.main
             img(src="/images/road-segmentation/result.png")
+        span.image.main
+            img(src="/images/road-segmentation/table.png")
+        p
+            | The numbers with * in the last line of the table indicates that the value is not comparable with others since the training data is different and the validation data is used for training in that case.
