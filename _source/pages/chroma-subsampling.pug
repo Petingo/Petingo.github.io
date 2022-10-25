@@ -12,15 +12,58 @@ block content
             | before encoding and storing. Since human eyes are less sensitive to color change than luminance change,
             | we can sacrifice chroma information but keep luminance information as much as possible to shrink the
             | data size and preserve its visual quality.
+        
+        p 
+            | For example, given a 4x4 uncompressed RGB image, we can convert it to YUV 4:2:0 format which consists of one 4x4 Luminance-channel (Y) and two 2x2 Chroma-channel (U&V).
+            | By doing so, the size of the image is decreased, from 4x4x3 = 48 to 4x4+2x2x2 = 24. This procedure is called "chroma subsampling".
+            | When we want to display the image, we can simply do a reversed operation.
+        
+        span.image.fit
+            img(src="/images/chroma-subsampling/YUV420.png")
+        
+        p 
+            | The equation to convert RGB to YUV and vise-versa is shown below: 
+        
+        span.image.fit
+            img(src="/images/chroma-subsampling/YUVRGB.png")
 
         p
-            | In traditional methods, chroma subsampling is performed on its own (do not rely on luminance information).
-            | However, some researches showed that with luminance information, the distoration of the compressed image can be decreased.
+            | In traditional methods, chroma subsampling is performed on its own (i.e. does not refer to the luminance channel).
+            | However, when we reconstruct the RGB image, the value in all three channels is involved.
+            | Thus, this leads to a question: How do we minimize the distortion?
+            | Although some research showed that modifying the Y or the UV channels after subsampling can reduce the distortion,
+            | nobody tried to develop a new algorithm that involves all 3-channels to perform the subsampling.
 
-        p 
-            | In this paper, we proposed a novel method for YUV420, which is one of the most widely-used chroma subsampling format,
-            | using multiple linear regression technique.
-            | For experiment result, it showed that our method outperformed the previous state-of-the-art by >1db in evaluation of color-PSNR.
+        p
+            | In this paper, we proposed a novel method for YUV420 subsampling, which is one of the most widely-used chroma subsampling formats,
+            | using multiple linear regression techniques.
 
+        h2 Method
+        p
+            | YUV420 subsampling performs on a 2x2 patch, which means that given 4 pixels in RGB format, we want to find
+            | 4 Y-value, 1 U-value, 1 V-value that minimize the reconstruction distortion. Here, we can describe the task in the following equation: 
+        
+        span.image.fit
+            img(src="/images/chroma-subsampling/overdetermined.png")
+        
         p 
-            | For more detail, please refer to #[a(href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9108293&tag=1") link to the paper].
+            | We can see that this is an overdetermined system. Thus, to minimize the distortion, we can simply find a least-square solution.
+
+        h2 Result 
+        p 
+            | Here is the qualitative and the quantitative result:
+        
+        span.image.fit
+            img(src="/images/chroma-subsampling/qualitative.png")
+        span.image.fit
+            img(src="/images/chroma-subsampling/quantitative.png")
+        
+        p
+            | We can see that our method beats the previous state-of-the-art by 1.3 dB in the evaluation of CPSNR,
+            | and our methods are also more efficient.
+        
+
+        h2 Remark
+        p 
+            | In this work, my major contribution is proposing the initial idea of applying multiple linear regression on YUV420 subsampling to minimize distortion.
+            | The paper has been published in IEEE Access. For more detail, please refer to #[a(href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9108293&tag=1") the link of the paper].
