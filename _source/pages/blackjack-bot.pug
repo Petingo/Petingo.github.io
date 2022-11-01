@@ -1,0 +1,66 @@
+extends template/base.pug
+
+block content
+    div#article
+        h1 Bloackjack Bot 
+        span.image.main
+            img(src="/images/cover/blackjack-bot.png")
+        
+        h2 Intro 
+        p
+            | During the summer vacation before attending university (2016), I saw a post on PTT that someone is looking for a software engineer to help him build a bot that plays Blackjack online.
+            | I was interested in this project, so I contacted him and we started to work on it.
+            | According to his calculation, since some online casinos have high cash-back rates when your total bet amount is over a certain number, 
+            span(style="background-image: linear-gradient(0deg, transparent 9%, #d1f0ec 10%, #d1f0ec 49%, transparent 50%);")
+                | it is possible to make a profit by playing Blackjack with a dedicated algorithm.
+        
+        p   
+            | When I contacted him, he has already documented the strategy and built a macro in Excel that calculate the expectation of the current game status.
+            | Thus, what the bot needs to do is read the screen and input the current status into Excel, run the macro, and click on the button to perform the corresponding action based on the strategy.
+            | The bot is implemented in QuickMacro, which is a VB-like script program designed for this kind of purpose thus easy to perform simple OCR and simulate a mouse click.
+            | Although the bot works well enough to make a profit as we expected, the game was closed soon after we started botting. Probably the casino found this bug.
+        
+        h2 Reading Screen
+        p
+            | Here I will only mention the part that I am responsible for, which is mainly the Computer Vision technique of reading the screen.
+            | There are 4 main parts: Dealer's point, Player's point, Chips, and Action buttons.
+            | The bot needs to read the value of the dealer and player's point for calculating the expectation, and when it needs to click on the Chips or Action buttons, it has to check if it's available.
+
+        
+        h3 Casino #1
+        span.image.fit
+            img(src="/images/blackjack-bot/interface.png")
+        p
+            | In the first casino, it is easy to read the game status from the screen because the word is clear and the background is simple.
+            | The bot can simply use the built-in OCR function of a QuickMacro plug-in to read the text on the screen.
+
+        h3 Casino #2
+        span.image.fit
+            img(src="/images/blackjack-bot/interface2.png")
+        p
+            | However, in the second casino, the text and the background blur, and thus the built-in OCR doesn't work well.
+            | To solve this problem, a simple image processing technique is implemented to extract the text.
+
+        p 
+            | First, a simple dataset containing the binarized image of 0 ~ 9 is created.
+
+        span.image.fit
+            img(src="/images/blackjack-bot/numbers.png")
+        
+        p
+            | During the game, the bot would first binarize the image and runs brute-force searching in the gray box.
+            | If the similarity between the binarized image and the dataset is higher than a threshold, the number is considered to be presented.
+            | When two numbers are found, the number on the left is timed by 10 and added to the number on the right to get the final result.
+        
+        h3 Other Casinos
+        p
+            | Aside from Blackjack, we also tried other games such as Baccarat.
+            | For Baccarat, the bot needs to read the value of the cards directly.
+            | To perform this, a similar strategy as Casino #2 is used, but with a larger dataset of A ~ K for both black and red cards.
+        
+        h2 Notes
+        p 
+            | This is the first time I worked on a project related to Computer Vision.
+            | Back in that time, machine learning was not a thing and I didn't have much experience in programming.
+            | Thus, I was not able to implement a more robust algorithm.
+            | However, I learned a lot from this project and I am glad that I was able to make it.
