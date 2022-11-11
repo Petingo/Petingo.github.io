@@ -1,0 +1,45 @@
+extends template/base.pug
+
+block content
+    div#article
+        h1 Architectural Sketch to 3D model
+        p (This page is under construction)
+
+        span.image.main
+            img(src="/images/sketch-to-3d/main.png")
+        
+        h2 Introduction
+        p
+            | Transforming sketches into digital 3D models has been an enduring practice in the design process since the first digital turn in architecture. However, 3D modeling is time-consuming and 3D CAD software usually comes with a cumbersome interface.
+        p
+            | Aiming to bridge the gap between sketch and 3D model, we propose a framework that turns hand-drawn 2D sketches into a 3D mesh. Through a web-based interface, the user can draw a sketch on the canvas and the corresponding 3D model will automatically be generated and shown aside. The 3D model can either be downloaded or directly imported into the CAD software(Rhino) through a scripting interface(Grasshopper).
+ 
+        span.image.main
+            img(src="/images/sketch-to-3d/use.png")
+       
+        h2 Model Generation
+        p 
+            | The proposed framework uses a machine learning-based approach (Sketch2Model) to generate the initial 3D mesh from a single hand-drawn sketch, by deforming a template shape.
+        table 
+            tr
+                td
+                    img(src="/images/sketch-to-3d/deform-1.gif" style="width: 100%;")
+                td
+                    img(src="/images/sketch-to-3d/deform-2.gif" style="width: 100%;")
+                td
+                    img(src="/images/sketch-to-3d/deform-3.gif" style="width: 100%;")
+        
+        h3 Dataset
+        p
+            | To train the machine learning model, we create the Simple House dataset, which consists of 5000 single-volume houses. We define 5 categories of houses distinguished by roof type and other geometric properties and generated 1000 models for each category with parameters chosen randomly. Each model includes a mesh and 20 perspective line drawings taken from different angles.
+        span.image.fit
+            img(src="/images/sketch-to-3d/dataset-overview.png")
+
+
+        h2 Refinement 
+        p
+            | Since the generated models have an uneven surface, we apply a refinement step to trim the shape, creating a more usable architectural 3D model with planar faces and sharper edges.
+        
+        span.image.fit
+            img(src="/images/sketch-to-3d/mesh-refinment.png")
+        
