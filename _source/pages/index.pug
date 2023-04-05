@@ -2,13 +2,14 @@ extends template/base.pug
 
 block content
     header
-        h1(style="line-height: 1.3;") I'm Petingo, #[br] an enthusiast of #[span#typeit-block]
+        h1(style="line-height: 1.3;") I'm Petingo, #[br] I do #[span#typeit-block]
         p
             | I'm a Master student in Computer Science at EPFL, Switzerland. #[br]
-            | Since last semester, I've also been working part-time at
-            | #[a(href="https://actu.epfl.ch/news/augmented-reality-as-a-tool-for-construction/") IBOIS for an AR application for carpentry] and 
+            | My passion lies in the creation of new ideas and exploring uncharted territories.
+            | With interest in the 3D Computer Vision, Photography, Digital Fabrication, and MR/AR,
+            | I'm currently working as a research assistant at
+            | #[a(href="https://actu.epfl.ch/news/augmented-reality-as-a-tool-for-construction/") IBOIS for an AR woodworking tool] and 
             | #[a(href="https://www.epfl.ch/labs/ldm/") LDM for an AI-aided architectural design research.] #[br]
-            | My research interest includes Computer Vision, Computational Photography, Geometric Computing, 3D reconstruction, and MR/AR. #[br]
             | If you want to know more about me, please visit the #[a(href="about.html") About page] or check out my #[a(href="https://cv.petingo.ch/") Résumé]. #[br]
         
         ul.icons(style="margin-bottom: 4em;")
@@ -44,12 +45,24 @@ block content
                     h2= title
                     div.content
                         p= disc
-        
+
+        +article(
+            'Digital Design and Making',
+            'The course project of Digital Design and Making',
+            'images/cover/DDM.png',
+            'projects/digital-design-and-making.html')
+
         +article(
             'Architectural Sketch To 3D Model',
             'Turning architectural sketches into 3D models with deep learning.',
             'images/cover/sketch-to-3d.png',
             'projects/sketch-to-3d.html')
+
+        +article(
+            'Geometric Computing',
+            'The course project of Geometric Computing, including "Make it stand", elastic material fabriction, and minimal surface construction',
+            'images/cover/small-projects.png',
+            'https://blog.petingo.ch/Geometric-Computing/')
 
         +article(
             'Road Segmentation',
@@ -69,7 +82,11 @@ block content
             'images/cover/ptt-theme.png',
             'projects/ptt-theme.html')
 
-        //- 
+        +article(
+            'Fold the Refuge',
+            'Project of Architecture Design I. A refuge formed by foldable components, which is designed for rapid recovery from a natural disaster.',
+            'images/cover/fold.png',
+            'projects/fold.html')
 
         +article(
             'Effective Chroma Subsampling',
@@ -100,19 +117,6 @@ block content
             'Project of IoT Data Analysis, predicting the average speed of a highway in 30 mins',
             'images/cover/highway-speed-pred.png',
             'https://blog.petingo.ch/Highway-Average-Speed-Prediction/')
-
-        +article(
-            'Geometric Computing',
-            '(Page under construction) The course project of Geometric Computing, including "Make it stand", elastic material fabriction, and minimal surface construction',
-            'images/cover/small-projects.png',
-            'https://blog.petingo.ch/Geometric-Computing/')
-
-        +article(
-            'Fold the Refuge',
-            'Project of Architecture Design I. A refuge formed by foldable components, which is designed for rapid recovery from a natural disaster.',
-            'images/cover/fold.png',
-            'projects/fold.html')
-
         
         +article(
             'Hame',

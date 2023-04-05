@@ -2,9 +2,40 @@ extends template/base.pug
 
 block content
     div#article
-        h1 Geometric Computing
-        p
-            b (This page is under construction, some parts may be missing)
+        h1 Digital Design and Making
         span.image.main
-            img(src="/images/light-field-image-chroma-upsampling/main.png")
+            img(src="/images/digital-design-and-making/main.png")
+        p
+            | During the winter semester of 2022, I took the course "Digital Design and Making" by Professor Stefana. This course was divided into four distinct sessions: Computational Design, Material and Optimization, Robotics and Automation, and Artificial Intelligence and Machine Learning. The course aimed to introduce us to the latest technologies and applications in these fields.
+        p
+            | After each presentation, we engaged in a discussion regarding the potential benefits and drawbacks of the technology. At the end of each session, we were given a small project to apply the knowledge gained (except for the final session, which involved a report on Machine Learning).
+        p
+            | In this post, I will share the final result of the three small projects that were assigned in the course.
+
+        h2 Computational Design
+        p
+            | In the initial session on computational design, we began with a tutorial on Rhino and Grasshopper software. The primary objective of the session was to apply computational design techniques to create a façade using Grasshopper.
+        p 
+            | To accomplish this, I developed a program that utilized gravity fields to generate unique patterns. The program creates a loose area around the center of each gravity field and considers their interaction with one another as if they were repelling each other. The density of the façade is adjusted by modifying the orientation of the bricks. The angle is calculated based on the gravity force that each brick receives.
+        p 
+            | Here is an overview of the process involved in generating a façade using this program:
         
+        span.image
+            img(src="/images/digital-design-and-making/facade-design.png")
+            img(src="/images/digital-design-and-making/facade-design-3D.png")
+            img(src="/images/digital-design-and-making/facade-render.jpg")
+        
+        h2 Material and Optimization
+        p
+            | During this session, we utilized tOpos, a topology optimization tool, to create a design for a tree house. By inputting specific parameters, such as the boundaries of the shape and the weight capacity required for each platform, the software was able to generate an organic structure that maximized efficiency while adhering to the given constraints.
+
+        span.image
+            img(src="/images/digital-design-and-making/row.png")
+
+        h3 Robotics and Automation
+        p
+            | The last project is building a "useless machine" with a robotic arm. Our team developed a robot that continually places bricks in a circular pattern, yet never manages to complete it. The spectacle of its effortless attempts amuses us greatly.
+        p
+            | The robot's operation comprises two distinct stages. In the initial stage, the robot retrieves bricks from a starting point and places them in the correct sequence to form a circle. Once it has laid six bricks, it proceeds to the second stage. At this point, instead of retrieving a new brick from the starting point, the robot selects the earliest brick it placed and continues building the circle from there. Once the robot has completed a full circle, it performs a celebratory dance to express its perceived success. However, upon closer inspection, it realizes that the circle is not complete and proceeds to repeat the process indefinitely.
+    
+        iframe(width="100%" height="360" src="https://www.youtube.com/embed/wNdMqYjkFc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen)
