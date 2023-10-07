@@ -4,8 +4,81 @@ block content
     div#article
         h1 Geometric Computing
         p
-            b (This page is under construction, some parts may be missing)
+            a(href="https://www.epfl.ch/labs/gcm/education/geometric-computing/") Geometric Computing
+            | is one of the most coolest courses I've taken in EPFL. This course covers mathematical concepts and efficient numerical methods for geometric computing. It is a project-based course, where we develop and implement algorithms to simulate and optimize 2D and 3D geometric models with an emphasis towards computational design for digital fabrication. 
+        p
+            | There are mainly 3 projects in this course: Make it stand, Elastic Material Fabriction, and Asymptotic Grid Shell Design. 
+
+        h2 1. Make it stand
+        p
+            | The goal of this project is to optimize the shape of an object so that it stands in a desired pose under gravity by implementing a simplified 2D variant of the 
+            a(href="https://igl.ethz.ch/projects/make-it-stand/make-it-stand-siggraph-2013-prevost-et-al.pdf") 2013 SIGGRAPH Paper "Make It Stand" by Prévost et al.
             
+        span.image
+            img(src="/images/geometric-computing/make-it-stand.png")
+
+        p 
+            | We implemented BFGS algorithm to find the optimized the shape. The objective function is composed by the equilibrium energy, the shape energy, and the constrain of the face area. Therefore, the deformed shape can best preserve the original shape, meaning that it looks like the original shape, but it can stand without falling down.
+
+        p
+            | Aside from the example shape provided by the course for testing, we were encourged to try some other shape as well. Here is my final result (gray: original shape, yellow: optimized shape):
+
+        span.image
+            img(src="/images/geometric-computing/make-it-stand-wujing.png")
+        
+        hr
+
+        h2 2. Inverse Design of Elastic Solids
+        span.image
+            img(src="/images/geometric-computing/elastic.png")
+
+        p
+            | If we want to manufacture the model using elastic material and fabricate the desired shape directly, gravity would deform it and result in an unwanted result, as shown on the left in the picture. Therefore, to ensure that the final shape is what we desire despite the effects of gravity, we must determine the rest shape that will deform into the desired shape under the gravity forces.
+
+        p
+            | The concept of this project is similar to the previous "make it stand", but with a more complex optimization target. In addition to BFGS, we also implemented the Newton-Conjugate Gradient to find the optimized shape, which reduces the computation time dramatically and sometimes even finds a better result.
+
+        span.image 
+            img(src="/images/geometric-computing/elastic-table-dino.png")
+
+        p
+            | The final result is shown in the picture below. Originally, if we fabricate the desired shape (red) directly, we would get an unwanted shape(black). Now with inverse design, we can find the rest shape of the elastic model for fabrication (blue / green), and the deformed shape (yellow) would be similar to the desired shape (red).
+
+        span.image 
+            img(src="/images/geometric-computing/elastic-result.png")
+
+        hr
+
+        h2 3. Asymptotic Grid Shell Design
+        
+        span.image 
+            img(src="/images/geometric-computing/asym-CAADRIA-1.jpeg")
+        span.image
+            img(src="/images/geometric-computing/asym-CAADRIA-2.jpeg")
+            p.align-center
+                a(href="https://caadria2021.org/project-15") (The Asymptotic Building Envelope by E. Schling et. al.)
+
+        p 
+            | The asymptotic curve comes with a special property that is beneficial for digital fabrication. The structure formed by a grid of asymptotic curves can be fabricated from straight and flat elements by laser-cutter, making the manufacture process easier and minimizing the packing size.
+        
+        p
+            | The minimal surface, on the other hand, is an ideal structure to be form by an asymptotic grid. Since the minimal surface has zero mean curvature at all points, the asymptotic curve can be found at every given point on the surface. Therefore, we can fabricate the minimal surface with an approximate uniformally distributed asymptotic grid.
+
+        p 
+            | The goal of this project is to find the minimal surface with a given border, and with the user input of the desired point on the surface, form the corresponding asymptotic grid. The result is shown in the picture below.
+
         span.image.main
-            img(src="/images/light-field-image-chroma-upsampling/main.png")
+            img(src="/images/geometric-computing/asym.png")
+        
+        p 
+            | At the end of the course, we also voted for some shape created by the students and laser cut the stripes and assemble them together.
+        
+        span.image.main
+            img(src="/images/geometric-computing/asym-assemble-1.jpg")
+        span.image.main
+            img(src="/images/geometric-computing/asym-assemble-2.jpg")
+        span.image.main
+            img(src="/images/geometric-computing/asym-assemble-3.jpg")
+        span.image.main
+            img(src="/images/geometric-computing/asym-assemble-4.jpg")
         
