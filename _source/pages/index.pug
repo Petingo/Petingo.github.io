@@ -4,13 +4,8 @@ block content
     header
         h1(style="line-height: 1.3;") I'm Petingo, #[br] I do #[span#typeit-block]
         p
-            | I'm a Master student in Computer Science at EPFL, Switzerland. #[br]
-            | My passion lies in the creation of new ideas and exploring uncharted territories.
-            | With interest in the 3D Computer Vision, Photography, Digital Fabrication, and MR/AR,
-            | I'm currently working as a research assistant at
-            | #[a(href="https://actu.epfl.ch/news/augmented-reality-as-a-tool-for-construction/") IBOIS for an AR woodworking tool] and 
-            | #[a(href="https://www.epfl.ch/labs/ldm/") LDM for an AI-aided architectural design research.] #[br]
-            | If you want to know more about me, please visit the #[a(href="about.html") About page] or check out my #[a(href="https://cv.petingo.ch/") Résumé]. #[br]
+            | I'm a Master's student in Computer Science at EPFL, Switzerland, with a passion for Computer Vision, Digital Fabrication, and AR/MR/VR. #[br]
+            | I thrive on exploring uncharted territories and approaching problems from unique perspectives, generating innovative ideas and making them come true.
         
         ul.icons(style="margin-bottom: 4em;")
             li
@@ -28,14 +23,6 @@ block content
             li
                 a.icon.solid.style1.fa-envelope(href="mailto:eyanghongbin0315@gmail.com")
                     span.label Email
-
-            //- li
-            //-     a.icon.brands.style1.fa-twitter(href="https://twitter.com/Petingooo")
-            //-         span.label Twitter
-            //- li
-            //-     a.icon.brands.style1.fa-facebook(href="https://www.facebook.com/Petingo")
-            //-         span.label Facebook
-            
     section.tiles
         mixin article(title, disc, img_src, href)
             article.style1
@@ -45,7 +32,7 @@ block content
                     h2= title
                     div.content
                         p= disc
-
+        
         +article(
             'Digital Design and Making',
             'The course project of Digital Design and Making',
@@ -63,6 +50,27 @@ block content
             'The course project of Geometric Computing, including "Make it stand", elastic material fabriction, and minimal surface construction',
             'images/cover/small-projects.png',
             'https://blog.petingo.ch/Geometric-Computing/')
+
+        +article(
+            'Shadow Sculpture',
+            'A tool for creating lamp that cast custom shadows',
+            'images/cover/shadow-sculpture.png',
+            'https://docs.google.com/presentation/d/17oFZuzQ_6P-fuGNTJg-5JbMICKUBCEk1k2DVd8Q5-gE/edit?usp=sharing'
+        )
+
+        +article(
+            'Sketch2CADScript',
+            '3D Scene Reconstruction from 2D Sketch using Visual Transformer and Grasshopper',
+            'images/cover/sketch2cadscript.png',
+            'https://drive.google.com/file/d/1Za9SamYH9A3Vu2ZxBImBScoAMD7FK9zZ/view?usp=sharing'
+        )
+
+        +article(
+            'Space Golf',
+            'Play golf in outer space!',
+            'images/cover/space-golf.png',
+            'https://drive.google.com/file/d/1jfNulE_uKYAJ0LojmXIXljSy_VH8Ebr1/view?usp=sharing'
+        )
 
         +article(
             'Road Segmentation',
